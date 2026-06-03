@@ -62,7 +62,6 @@ st.markdown("""
 st.markdown("""
 <div class="main-header">
     <h1>✈️ British Airways — Customer Booking Predictor</h1>
-    <p>Data Science · Forage Virtual Experience · Task 2 · Random Forest Classifier</p>
 </div>
 """, unsafe_allow_html=True)
 
