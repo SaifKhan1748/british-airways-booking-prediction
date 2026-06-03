@@ -56,7 +56,7 @@ British Airways loses potential customers every day to incomplete bookings. This
 
 The dataset is heavily imbalanced: 85% of customers do not complete a booking. This required special handling via `class_weight='balanced'` in the model.
 
-![Target Variable Distribution](images/output.png)
+![Target Variable Distribution](images/output-14.png)
 
 ---
 
@@ -64,7 +64,7 @@ The dataset is heavily imbalanced: 85% of customers do not complete a booking. T
 
 Purchase lead time is heavily right-skewed (mean = 84.9 days), meaning most customers book close to their travel date with a long tail of advance planners. Flight duration shows a bimodal pattern reflecting short-haul vs long-haul routes.
 
-![Numeric Feature Distributions](images/output_1.png)
+![Numeric Feature Distributions](images/output-13.png)
 
 ---
 
@@ -72,7 +72,7 @@ Purchase lead time is heavily right-skewed (mean = 84.9 days), meaning most cust
 
 Internet bookings (15.5%) outperform Mobile (10.8%). Round trips (15.1%) significantly outperform OneWay (5.2%) and CircleTrip (4.3%) — customers planning return journeys show stronger commitment.
 
-![Completion Rate by Category](images/output_2.png)
+![Completion Rate by Category](images/output-12.png)
 
 ---
 
@@ -80,7 +80,7 @@ Internet bookings (15.5%) outperform Mobile (10.8%). Round trips (15.1%) signifi
 
 Wednesday has the highest completion rate (16.3%) but the variation across days is small (~2%). Day of week is a weak predictor — more useful as a control variable than a primary signal.
 
-![Flight Day Analysis](images/output-3.png)
+![Flight Day Analysis](images/output-11.png)
 
 ---
 
@@ -88,7 +88,7 @@ Wednesday has the highest completion rate (16.3%) but the variation across days 
 
 Box plots show that completed and non-completed bookings have overlapping distributions for both purchase lead and length of stay. These features contribute as part of a combination rather than standalone predictors.
 
-![Boxplots](images/output-5.png)
+![Boxplots](images/output-10.png)
 
 ---
 
@@ -96,7 +96,7 @@ Box plots show that completed and non-completed bookings have overlapping distri
 
 Customers who select add-ons show notably higher completion rates. Preferred Seat selectors complete at 17.7% vs 13.8% for those who don't. This validates add-on selections as commitment signals.
 
-![Add-On Selections vs Completion](images/output-6.png)
+![Add-On Selections vs Completion](images/output-9.png)
 
 ---
 
@@ -104,7 +104,7 @@ Customers who select add-ons show notably higher completion rates. Preferred Sea
 
 No strong correlations between input features, confirming the feature set is diverse and non-redundant. The highest correlation (0.32) is between `wants_preferred_seat` and `wants_in_flight_meals` — both add-on behaviours.
 
-![Correlation Matrix](images/output-7.png)
+![Correlation Matrix](images/output-8.png)
 
 ---
 
@@ -112,7 +112,7 @@ No strong correlations between input features, confirming the feature set is div
 
 Four new features were created. Short-haul flights (18.1%) show higher completion rates than long-haul (13.8%). Last-minute bookers (17.1%) paradoxically complete at higher rates than advance planners (13.8%).
 
-![Engineered Features](images/output-8.png)
+![Engineered Features](images/output-7.png)
 
 ---
 
@@ -122,7 +122,7 @@ Four new features were created. Short-haul flights (18.1%) show higher completio
 
 5-fold stratified cross-validation shows stable scores across all folds, confirming the model generalises well and isn't overfitting to any particular data split.
 
-![Cross-Validation Performance](images/output-9.png)
+![Cross-Validation Performance](images/output-6.png)
 
 ---
 
@@ -130,7 +130,7 @@ Four new features were created. Short-haul flights (18.1%) show higher completio
 
 The ROC-AUC of **0.859** on the full dataset demonstrates strong discriminative ability. The confusion matrix shows the trade-off: high recall (correctly catching real bookers) at the cost of some false positives.
 
-![ROC Curve and Confusion Matrix](images/output-10.png)
+![ROC Curve and Confusion Matrix](images/output-5.png)
 
 ---
 
@@ -140,7 +140,7 @@ The ROC-AUC of **0.859** on the full dataset demonstrates strong discriminative 
 
 **Booking Origin** dominates with 33.3% importance — where a customer books from is the single strongest predictor of completion. Route (14.5%) reinforces the geographic signal. Together they explain ~48% of the model's total predictive power.
 
-![All Feature Importances](images/output-11.png)
+![All Feature Importances](images/output-4.png)
 
 ---
 
@@ -148,7 +148,7 @@ The ROC-AUC of **0.859** on the full dataset demonstrates strong discriminative 
 
 The top 6 features alone explain **80% of predictive power** — a highly parsimonious model. Geographic features (Origin + Route) and trip characteristics (Length of Stay, Flight Duration) dominate.
 
-![Top 10 Feature Importances](images/output-12.png)
+![Top 10 Feature Importances](images/output-3.png)
 
 ---
 
@@ -156,7 +156,7 @@ The top 6 features alone explain **80% of predictive power** — a highly parsim
 
 Just **6 features** capture 80% of the model's importance. **12 features** reach 95%. This means a simplified 6-feature model could be deployed in production with minimal performance loss.
 
-![Cumulative Feature Importance](images/output-13.png)
+![Cumulative Feature Importance](images/output_2.png)
 
 ---
 
@@ -164,7 +164,7 @@ Just **6 features** capture 80% of the model's importance. **12 features** reach
 
 Full project summary showing model performance metrics, top 5 predictors, and the clear business insight that customers selecting more add-ons have progressively higher completion rates (10.7% → 18.6%).
 
-![Summary Dashboard](images/output-14.png)
+![Summary Dashboard](images/output_1.png)
 
 ---
 
